@@ -1,9 +1,307 @@
-<h1>Proyecto final funcionando!!!</h1>
-<h2>Holaa mundoo</h2>
-<h3>Holaaa somos unos expertos en servidores web</h3>
-<h4>Holaaa :3</h4>
-<p>Holaaaaaaaaa</p>
-<h1>Sexta versión<h1>
-<h1>Te quiero cris<h1>
-<h1>Holaaaaaaaaaaaaaaaaa<h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biblioteca CETIS 91</title>
 
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #eef2f3, #dfe9f3);
+    color: #333;
+}
+
+/* HEADER */
+header {
+    background: #003366;
+    padding: 10px 0;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo-container img {
+    max-height: 80px;
+}
+
+/* NAV */
+nav {
+    background: #00509e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: #ffd60a;
+    color: black;
+}
+
+/* BUSCADOR */
+.search-container input {
+    padding: 6px;
+    border-radius: 10px;
+    border: none;
+}
+
+.search-container button {
+    padding: 6px 10px;
+    border-radius: 10px;
+    border: none;
+    background: #ffd60a;
+    cursor: pointer;
+}
+
+/* BIENVENIDA */
+.bienvenida {
+    text-align: center;
+    margin: 20px;
+}
+
+.bienvenida h1 {
+    color: #003366;
+}
+
+/* CARRUSEL */
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.carousel img {
+    display: none;
+    width: 330px;
+    height: 250px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.carousel img.active {
+    display: block;
+}
+
+.carousel-controls {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.carousel-controls button {
+    background: #00509e;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.carousel-controls button:hover {
+    background: #ffd60a;
+    color: black;
+}
+
+/* INFORMACIÓN */
+.informacion {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.informacion div {
+    max-width: 500px;
+}
+
+.informacion img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* FOOTER */
+.footer-section {
+    background: #003366;
+    color: white;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.footer-content {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ffd60a;
+    color: black;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.info-box {
+    text-align: center;
+    margin: 10px;
+}
+
+.info-box span {
+    font-size: 30px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .informacion {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <div class="logo-container">
+        <img src="Sep_Logo.jpg">
+        <img src="cetis91.jpg">
+        <img src="logodgeti.jpg">
+    </div>
+</header>
+
+<nav>
+    <a href="Biblioteca.html">Inicio</a>
+    <a href="Guardados.php">Guardados</a>
+    <a href="recomendaciones.php">Recomendados</a>
+    <a href="formulario_devolucion.php">Devoluciones</a>
+    <a href="mostrar_historial.php">Historial</a>
+
+    <div class="search-container">
+        <form action="buscar.php" method="GET">
+            <input type="text" name="busqueda" placeholder="Buscar...">
+            <button type="submit">🔍</button>
+        </form>
+    </div>
+</nav>
+
+<section class="bienvenida">
+    <h1>📚 BIENVENIDOS ALUMNOS 📚</h1>
+    <p>Explora, aprende y descubre nuevos mundos</p>
+</section>
+
+<section class="cita">
+    <div class="carousel-container">
+        <div class="carousel" id="carousel">
+            <img src="imagen1.jpeg" class="active">
+            <img src="imagen2.jpeg">
+            <img src="Imagen3.jpg">
+
+            <div class="carousel-controls">
+                <button onclick="prevSlide()">❮</button>
+                <button onclick="nextSlide()">❯</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="informacion">
+    <div>
+        <h2>Leer: Una Ventana al Mundo</h2>
+        <p>
+        La lectura nos permite descubrir nuevos mundos, aprender y crecer.
+        Cada libro abre oportunidades para cambiar nuestra vida.
+        </p>
+    </div>
+
+    <div>
+        <img src="imagen2.jpg">
+    </div>
+</section>
+
+<footer class="footer-section">
+    <div class="footer-content">
+        <h2>CETIS No. 091</h2>
+        <p>Queremos escuchar tus opiniones</p>
+        <a href="#" class="footer-button">Enviar correo</a>
+    </div>
+
+    <div class="contact-info">
+        <div class="info-box">
+            <span>📍</span>
+            <h3>Ubicación</h3>
+            <p>Tula de Allende, Hidalgo</p>
+        </div>
+
+        <div class="info-box">
+            <span>📞</span>
+            <h3>Teléfono</h3>
+            <p>+52 123 456 7890</p>
+        </div>
+
+        <div class="info-box">
+            <span>📧</span>
+            <h3>Correo</h3>
+            <p>cetis091</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+let index = 0;
+const slides = document.querySelectorAll("#carousel img");
+
+function showSlide(i) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[i].classList.add("active");
+}
+
+function nextSlide() {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+}
+
+function prevSlide() {
+    index = (index - 1 + slides.length) % slides.length;
+    showSlide(index);
+}
+
+/* AUTOMÁTICO */
+setInterval(nextSlide, 3000);
+</script>
+
+</body>
+</html>
